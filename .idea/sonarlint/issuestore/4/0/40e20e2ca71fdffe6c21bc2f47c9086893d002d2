@@ -1,0 +1,9 @@
+
+ƒ
+java:S1854";Remove this useless assignment to local variable "options".(Îæ„×úÿÿÿÿ8ˆ™òéº2J$aee76e17-d2c5-4309-9748-5faf96b3e26d
+„
+java:S1075	"ARefactor your code to get this URI from a customizable parameter.(Ø²³ª8‹™òéº2J$fe6439c5-129a-426e-8029-72a30f253f20
+t
+java:S1481",Remove this unused "options" local variable.(Îæ„×úÿÿÿÿ8™òéº2J$10ff604f-95de-4595-a7ef-cebb543c70bb
+~	java:S125"<This block of commented-out lines of code should be removed.(±†¶É8’™òéº2J$96ef5488-8ef1-4de7-a243-33c7aebef5ec
+r	java:S106"+Replace this use of System.out by a logger.(ƒƒ±³ùÿÿÿÿ8œ™òéº2J$6ce66d6a-3d5f-4660-9175-ff469b70f93a

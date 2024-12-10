@@ -21,3 +21,11 @@ k
 ;Lecture2_Task2/src/test/java/org/example/pom/LoginPage.java,a\b\ab329a17fd2f4b31c0fab6acf36d02431cfe2ce7
 j
 :Lecture2_Task2/src/test/java/org/example/pom/MainPage.java,4\e\4ee19abeb234f613b6e6d292999bcb428affec7c
+Å
+Q.idea/sonarlint/securityhotspotstore/6/3/63ce9b267b22f4c3d72115286b685e8ac26b0463,6\c\6ca2a3807d8a56d251d426ab6852021a17ccfb2a
+w
+G.idea/sonarlint/issuestore/6/3/63ce9b267b22f4c3d72115286b685e8ac26b0463,c\c\ccae28a98a0fc7617c0fb72b0894594be2240bde
+Å
+Q.idea/sonarlint/securityhotspotstore/4/0/40e20e2ca71fdffe6c21bc2f47c9086893d002d2,1\d\1d626dd58ea99add011b666a414fd0e6f1aeb36f
+à
+XCourseMaterials_Lecture1_Result_Two_tests/src/test/java/org/example/GBTestsAddGroup.java,4\0\4020e63d852b89b853675a6b5af0c762bda875c7

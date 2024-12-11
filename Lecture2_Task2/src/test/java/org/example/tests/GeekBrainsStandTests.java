@@ -30,8 +30,8 @@ public class GeekBrainsStandTests {
     private LoginPage loginPage;
     private MainPage mainPage;
 
-    private static final String USERNAME = "MaximDav";
-    private static final String PASSWORD = "a188da4213";
+    private static final String USERNAME = "Student-13";
+    private static final String PASSWORD = "0d53afe343";
 
     @BeforeAll
     public static void setupClass() {

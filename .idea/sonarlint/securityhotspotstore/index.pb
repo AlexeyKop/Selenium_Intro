@@ -19,3 +19,7 @@ k
 ;Lecture2_Task2/src/test/java/org/example/pom/LoginPage.java,a\b\ab329a17fd2f4b31c0fab6acf36d02431cfe2ce7
 j
 :Lecture2_Task2/src/test/java/org/example/pom/MainPage.java,4\e\4ee19abeb234f613b6e6d292999bcb428affec7c
+m
+=Lecture2_Task2/src/test/java/org/example/pom/StudentPage.java,b\9\b9e44dc8ebe51975c9bd0118298dc2435785047d
+u
+ELecture2_Task2/src/test/java/org/example/pom/elements/StudentRow.java,7\c\7c8834ab1d4ed1ef0dc12a255cb0162bf3a49c40

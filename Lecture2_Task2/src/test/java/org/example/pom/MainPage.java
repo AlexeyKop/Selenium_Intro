@@ -1,6 +1,5 @@
 package org.example.pom;
 
-import org.example.pom.elements.GroupTableRow;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -57,23 +56,5 @@ public class MainPage {
                 .getText().replace("\n", " ");
     }
 
-    public void clickTrashIconOnGroupWithTitle(String title) {
-        getRowByTitle(title).clickTrashIcon();
-    }
-
-    public void clickRestoreFromTrashIconOnGroupWithTitle(String title) {
-        getRowByTitle(title).clickRestoreFromTrashIcon();
-    }
-
-    public String getStatusOfGroupWithTitle(String title) {
-        return getRowByTitle(title).getStatus();
-    }
-
-    private GroupTableRow getRowByTitle(String title) {
-        return rowsInGroupTable.stream()
-                .map(GroupTableRow::new)
-                .filter(row -> row.getTitle().equals(title))
-                .findFirst().orElseThrow();
-    }
 
 }

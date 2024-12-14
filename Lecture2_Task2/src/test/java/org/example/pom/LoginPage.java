@@ -20,6 +20,24 @@ public class LoginPage {
     @FindBy(css="form#login button")
     private WebElement loginButton;
 
+    @FindBy(css = ".error-block h2")
+    private WebElement errorCode;
+
+    @FindBy(css = ".error-block p:nth-of-type(1)")
+    private WebElement errorMessage;
+
+    public String getErrorCode() {
+        // Ожидаем видимость элемента с кодом ошибки и возвращаем его текст
+        return wait.until(ExpectedConditions.visibilityOf(errorCode)).getText();
+    }
+
+    public String getErrorMessage() {
+        // Ожидаем видимость элемента с сообщением об ошибке и возвращаем его текст
+        return wait.until(ExpectedConditions.visibilityOf(errorMessage)).getText();
+    }
+
+
+
     public LoginPage(WebDriver driver, WebDriverWait wait) {
         PageFactory.initElements(driver, this);
         this.wait = wait;

@@ -51,6 +51,7 @@ public class MainPage {
 
     public void clickSaveButtonOnCreateStudentsForm() {
         saveCreateStudentsForm.shouldBe(visible).click();
+        Selenide.sleep(5000);
     }
 
     public void closeCreateStudentsModalWindow() {
@@ -119,14 +120,16 @@ public class MainPage {
     public String getStudentNameByIndex(int index) {
         return rowsInStudentTable.shouldHave(sizeGreaterThan(0))
                 .asDynamicIterable().stream()
-                .map(StudentTableRow::new)
+                //.map(StudentTableRow::new)
+                .map(row -> new StudentTableRow(row))
                 .toList().get(index).getName();
     }
 
     private StudentTableRow getStudentRowByName(String name) {
         return rowsInStudentTable.shouldHave(sizeGreaterThan(0))
                 .asDynamicIterable().stream()
-                .map(StudentTableRow::new)
+                //.map(StudentTableRow::new)
+                .map(row -> new StudentTableRow(row))
                 .filter(row -> row.getName().equals(name))
                 .findFirst().orElseThrow();
     }

@@ -24,9 +24,9 @@ public class GeekBrainsStandTests {
     private LoginPage loginPage;
     private MainPage mainPage;
 
-    private static final String USERNAME = "MaximDav";
-    private static final String PASSWORD = "a188da4213";
-    private static final String FULL_NAME = "Dav Maxim";
+    private static final String USERNAME = "Student-13";
+    private static final String PASSWORD = "0d53afe343";
+    private static final String FULL_NAME = "13 Student";
 
 
     @BeforeEach
@@ -36,7 +36,8 @@ public class GeekBrainsStandTests {
         // Сохраняем WebDriver из Selenide
         WebDriver driver = WebDriverRunner.getWebDriver();
         // Объект созданного Page Object
-        loginPage = new LoginPage(driver, new WebDriverWait(driver, Duration.ofSeconds(30)));
+        loginPage = new LoginPage();
+        //loginPage = new LoginPage(driver, new WebDriverWait(driver, Duration.ofSeconds(30)));
     }
 
     @Test
@@ -96,6 +97,7 @@ public class GeekBrainsStandTests {
         mainPage.clickSaveButtonOnCreateStudentsForm();
         mainPage.closeCreateStudentsModalWindow();
         mainPage.waitStudentsCount(groupTestName, studentsCount);
+
         mainPage.clickZoomInIconOnGroupWithTitle(groupTestName);
         // Проверка переходов статуса первого студента из таблицы
         String firstGeneratedStudentName = mainPage.getStudentNameByIndex(0);

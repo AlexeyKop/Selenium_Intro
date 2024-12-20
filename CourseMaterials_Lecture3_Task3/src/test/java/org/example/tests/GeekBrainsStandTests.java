@@ -1,17 +1,22 @@
 package org.example.tests;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import org.example.pom.LoginPage;
 import org.example.pom.MainPage;
 import org.example.pom.ProfilePage;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -27,6 +32,21 @@ public class GeekBrainsStandTests {
     private static final String USERNAME = "MaximDav";
     private static final String PASSWORD = "a188da4213";
     private static final String FULL_NAME = "Dav Maxim";
+
+    @BeforeAll
+    public static void setupClass(){
+        Configuration.remote = "http://localhost:4444/wd/hub";
+         Configuration.browser = "chrome";
+         Configuration.browserVersion = "128";
+
+//        Configuration.browser = "firefox";
+//        Configuration.browserVersion = "125";
+
+        Map<String, Object> options = new HashMap<>();
+        options.put("enableVnc", true);
+        options.put("enableLog", true);
+        Configuration.browserCapabilities.setCapability("selenoid:options", options);
+    }
 
 
     @BeforeEach
@@ -45,6 +65,8 @@ public class GeekBrainsStandTests {
         loginPage.clickLoginButton();
         // Проверка, что появился блок с ожидаемой ошибкой
         assertEquals("401 Invalid credentials.", loginPage.getErrorBlockText());
+
+        Selenide.sleep(5000);
     }
 
     @Test
@@ -120,6 +142,30 @@ public class GeekBrainsStandTests {
         ProfilePage profilePage = Selenide.page(ProfilePage.class);
         assertEquals(FULL_NAME, profilePage.getFullNameFromAdditionalInfo());
         assertEquals(FULL_NAME, profilePage.getFullNameFromAvatarSection());
+    }
+
+    @Test
+    void testAvatarOnEditingPoupOnProfilePage(){
+        // Логин в систему с помощью метода из класса Page Object
+        loginPage.login(USERNAME, PASSWORD);
+        // Инициализация объекта класса MainPage
+        mainPage = Selenide.page(MainPage.class);
+        assertTrue(mainPage.getUsernameLabelText().contains(USERNAME));
+        // Навигация на Profile page
+        mainPage.clickUsernameLabel();
+        mainPage.clickProfileLink();
+        // Инициализация ProfilePage с помощью Selenide
+        ProfilePage profilePage = Selenide.page(ProfilePage.class);
+        profilePage.clickEditIconInAvatarSection();
+        // проверка поля для загрузки файла
+        assertEquals("", profilePage.getAvatarInputValueOnSettingPopup());
+        // путь до файла с аватаром
+        String filePath = "src\\test\\resources\\Avatar.jpg";
+        profilePage.uploadPictureFileToAvatarField(filePath);
+        Selenide.sleep(60000);
+        //Проверка поля после загрузки файла, сравниваем имя
+        assertEquals(filePath.substring(filePath.lastIndexOf("\\") + 1),
+                profilePage.getAvatarInputValueOnSettingPopup());
     }
 
     @AfterEach

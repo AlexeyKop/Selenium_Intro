@@ -34,6 +34,7 @@ public class MainPage {
         return $x(String.format("//table[@aria-label='Tutors list']/tbody//td[text()='%s']", title)).shouldBe(visible);
     }
 
+
     public void createGroup(String groupName) {
         createGroupButton.shouldBe(visible).click();
         groupNameField.shouldBe(visible).setValue(groupName);

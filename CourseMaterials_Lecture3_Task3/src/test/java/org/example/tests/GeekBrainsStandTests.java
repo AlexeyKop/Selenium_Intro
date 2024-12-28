@@ -36,8 +36,8 @@ public class GeekBrainsStandTests {
     @BeforeAll
     public static void setupClass(){
         Configuration.remote = "http://localhost:4444/wd/hub";
-         Configuration.browser = "chrome";
-         Configuration.browserVersion = "128";
+        Configuration.browser = "chrome";
+        Configuration.browserVersion = "128";
 
 //        Configuration.browser = "firefox";
 //        Configuration.browserVersion = "125";

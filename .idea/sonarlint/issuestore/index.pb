@@ -29,3 +29,17 @@ JCourseMaterials_Lecture3_Task3/src/test/java/org/example/pom/MainPage.java,2\8
 MCourseMaterials_Lecture3_Task3/src/test/java/org/example/pom/ProfilePage.java,1\2\1262d2df5b3be9da8daeb5567196028ab57e2453
 ˆ
 XCourseMaterials_Lecture3_Task3/src/test/java/org/example/tests/GeekBrainsStandTests.java,8\f\8f4ffcc36e6f3e89dc822851c038fdd62f5d9477
+S
+#CourseMaterials_Lecture2_HW/pom.xml,8\0\800f32e6ca586c9988965ed81c56ffaa0ee77ede
+…
+UCourseMaterials_Lecture2_HW/src/test/java/org/example/tests/GeekBrainsStandTests.java,0\e\0e912e82fae266a0ef6f3e4730a559e9222f8af4
+x
+HCourseMaterials_Lecture2_HW/src/test/java/org/example/pom/LoginPage.java,6\0\6005af02a14fe25a55a24acce0cf5b25ee98e762
+w
+GCourseMaterials_Lecture2_HW/src/test/java/org/example/pom/MainPage.java,f\d\fd98f8ce88d04e898c696d2281c90ee7aa0d6f4f
+‡
+WCourseMaterials_Lecture2_HW/src/test/java/org/example/pom/elements/StudentTableRow.java,4\e\4e2b3aec6c4e4cf16ae1a9876d7a6b89599d75f6
+…
+UCourseMaterials_Lecture2_HW/src/test/java/org/example/pom/elements/GroupTableRow.java,d\b\dbf4c3252272eb20a0f11a4a084b8541be7d174f
+z
+JCourseMaterials_Lecture2_HW/src/test/java/org/example/pom/ProfilePage.java,3\9\393a58b2071befc04225fac6b6f8a41b00904160

@@ -1,5 +1,6 @@
 package org.example.tests;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.example.pom.LoginPage;
 import org.example.pom.MainPage;
@@ -13,11 +14,16 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Duration;
@@ -42,17 +48,39 @@ public class GeekBrainsStandTests {
 
     @BeforeAll
     public static void setupClass() {
+        Configuration.remote = "http://localhost:4444/wd/hub";
+        Configuration.browser = "chrome";
+        Configuration.browserVersion = "128";
+
         // Помещаем в переменные окружения путь до драйвера
-        System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
+
         // mvn clean test -Dgeekbrains_username=USER -Dgeekbrains_password=PASS
         //USERNAME = System.getProperty("geekbrains_username", System.getenv("geekbrains_username"));
         //PASSWORD = System.getProperty("geekbrains_password", System.getenv("geekbrains_password"));
     }
 
     @BeforeEach
-    public void setupTest() {
+    public void setupTest() throws MalformedURLException {
+
+        // URL Selenoid сервера
+        URL selenoidURL = new URL("http://localhost:4444/wd/hub");
+
+        // Настройки браузера Chrome
+        ChromeOptions options = new ChromeOptions();
+        options.setCapability("browserName", "chrome");
+        options.setCapability("browserVersion", "128.0"); // версия браузера
+        options.setCapability("enableVNC", true); // Включить просмотр через VNC
+        options.setCapability("enableVideo", true); // Включить запись видео
+        options.setCapability("enableLog", true); // Включить логи браузера
+
+        // Создание драйвера
+        driver = new RemoteWebDriver(selenoidURL, options);
+
+
         // Создаём экземпляр драйвера
-        driver = new ChromeDriver();
+        //driver = new ChromeDriver();
+
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         // Растягиваем окно браузера на весь экран
         driver.manage().window().maximize();
@@ -64,11 +92,12 @@ public class GeekBrainsStandTests {
     }
 
     @Test
-    public void testLoginWithEmptyFields() {
+    public void testLoginWithEmptyFields() throws InterruptedException {
         // Клик на кнопку LOGIN без ввода данных в поля
         loginPage.clickLoginButton();
         // Проверка, что появился блок с ожидаемой ошибкой
         assertEquals("401 Invalid credentials.", loginPage.getErrorBlockText());
+        //Thread.sleep(5000);
     }
 
     @Test
